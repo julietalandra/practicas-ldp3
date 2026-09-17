@@ -5,6 +5,168 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Hola Mundo</h1> 
+    <p>Mi primer sitio web con Razor Pages y Visual Studio 2022.</p>
+    <p>Hoy es: @Model.FechaHoy</p>
+</div>
+<hr class="my-2" />
+<div class="text-center">
+
+    <h1>Contador</h1> 
+    <p>El valor actual es: <strong>@Model.Contador</strong></p>
+
+    <form method="post" asp-page-handler="Contador">
+        <input type="hidden" name="Contador" value="@Model.Contador" />
+        <button type="submit" class="btn btn-primary">Sumar</button>
+    </form>
+
+</div>
+
+<hr class="my-5" />
+
+<div class="text-center">
+
+    <h1>Suma de dos valores</h1>
+
+    <form method="post" asp-page-handler="Suma">
+        <div class="mb-3">
+            <label>Ingrese primer valor</label>
+            <input type="number" name="X1" class="form-control text-center" />
+        </div>
+
+        <div class="mb-3">
+            <label>Ingrese segundo valor</label>
+            <input type="number" name="X2" class="form-control text-center" />
+        </div>
+
+        <div class="mb-3">
+            <button type="submit" class="btn btn-primary">Sumar</button>
+        </div>
+    </form>
+
+    @if (!string.IsNullOrEmpty(Model.Mensaje1))
+    {
+        <div class="alert alert-info">
+            @Model.Mensaje1
+        </div>
+    }
+</div>
+
+<hr class="my-5" />
+
+<div class="text-center">
+
+    <h1>Sumar o restar</h1> 
+    
+    <form method="post" asp-page-handler="SumaoResta" class="mt-3">
+        
+        <div class="mb-3">        
+            <label>Ingrese primer valor</label>        
+            <input type="number" name="X1" class="form-control text-center" />
+        </div>
+        
+        <div class="mb-3">
+            <label>Ingrese segundo valor</label>        
+            <input type="number" name="X2" class="form-control text-center" />
+        </div>
+
+        <div class="mb-3">
+            <input type="radio" name="Operacion" value="Sumar" checked /> Sumar
+            <input type="radio" name="Operacion" value="Restar" /> Restar
+        </div>
+
+        <div class="mb-3">        
+            <button type="submit" class="btn btn-primary">Calcular</button>    
+        </div> 
+
+    </form> 
+    
+    @if (!string.IsNullOrEmpty(Model.Mensaje2))
+    {
+        <div class="alert alert-info">
+            @Model.Mensaje2
+        </div>
+    }
+
+</div>
+
+<hr class="my-5" />
+
+<div class="text-center">
+
+    <h1>Sumar y/o restar</h1>
+
+    <form method="post" asp-page-handler="SumaYOResta" class="mt-3">
+
+        <div class="mb-3">
+            <label>Ingrese primer valor</label>
+            <input type="number" name="X1" class="form-control text-center" />
+        </div>
+
+        <div class="mb-3">
+            <label>Ingrese segundo valor</label>
+            <input type="number" name="X2" class="form-control text-center" />
+        </div>
+
+        <div class="mb-3">
+            <input type="checkbox" name="Operaciones" value="Sumar" /> Sumar
+            <input type="checkbox" name="Operaciones" value="Restar" /> Restar
+        </div>
+
+        <div class="mb-3">
+            <button type="submit" class="btn btn-primary">Calcular</button>
+        </div>
+
+    </form>
+
+    @if (!string.IsNullOrEmpty(Model.Mensaje3))
+    {
+        <div class="alert alert-info">
+            @Html.Raw(Model.Mensaje3)
+        </div>
+    }
+
+</div>
+
+<hr class="my-5" />
+
+<div class="text-center">
+
+    <h1>Cálculo con ListBox</h1>
+
+    <form method="post" asp-page-handler="ListBox" class="mt-3">
+
+        <div class="mb-3">
+            <label>Ingrese primer valor</label>
+            <input type="number" name="X1" class="form-control text-center" />
+        </div>
+
+        <div class="mb-3">
+            <label>Ingrese segundo valor</label>
+            <input type="number" name="X2" class="form-control text-center" />
+        </div>
+
+        <div class="mb-3">
+            <label>Elegí una o varias operaciones</label>        
+            <select name="Operaciones" multiple size="4" class="form-select text-center">
+                <option value="Sumar">Sumar</option>            
+                <option value="Restar">Restar</option>           
+                <option value="Multiplicar">Multiplicar</option>            
+                <option value="Dividir">Dividir</option>        
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <button type="submit" class="btn btn-primary">Calcular</button>
+        </div>
+
+    </form>
+
+    @if (!string.IsNullOrEmpty(Model.Mensaje4))
+    {
+        <div class="alert alert-info">
+            @Html.Raw(Model.Mensaje4)
+        </div>
+    }
+
 </div>
