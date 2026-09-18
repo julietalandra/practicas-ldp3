@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
+namespace PracticasLDP3.Pages.Guia01;
 public class IndexModel : PageModel
 {
     public string? FechaHoy { get; set; }
@@ -26,7 +27,7 @@ public class IndexModel : PageModel
     public List<string> Operaciones { get; set; } = new();    
     public string? Mensaje3 { get; set; }
 
-
+    public string? Mensaje4 { get; set; }
 
     public void OnGet()
     {
@@ -76,11 +77,6 @@ public class IndexModel : PageModel
         
         return Page();
     }
-
-    [BindProperty] 
-    public List<string> Operaciones2 { get; set; } = new();
-    public string? Mensaje4 { get; set; }
-
     public IActionResult OnPostListBox()
     {
         Mensaje4 = "";
