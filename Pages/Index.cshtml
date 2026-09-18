@@ -4,20 +4,41 @@
     ViewData["Title"] = "Laboratorio de Programación 3";
 }
 
-<div class="text-center mb-5">
-    <h1 class="display-4">Laboratorio de Programación 3</h1>
-    <p class="lead">Prácticas realizadas durante la materia</p>
-</div>
+<section class="hero">
+    <span class="badge-course">Tecnicatura en Desarrollo de Software</span>
 
-<div class="card">
-    <div class="card-body">
-        <h5 class="card-title">Guía 01</h5>
-        <p class="card-text">
-            Introducción al desarrollo de sitios web con ASP.NET Core Razor Pages.
-        </p>
+    <h1>Laboratorio de Programación 3</h1>
 
-        <a asp-page="/Guia01/Index" class="btn btn-primary">
-            Ver práctica
-        </a>
+    <h4> <i>
+        Prácticas y ejercicios realizados durante la materia
+        utilizando ASP.NET Core y Razor Pages.
+        </i>
+    </h4>
+    <p> 
+        Instituto Superior Santo Domingo <br />
+        Profesor: Mansilla Cristian
+    </p>
+</section>
+
+<section class="practicas">
+    <h2>Prácticas</h2>
+
+    <div class="practicas-grid">
+
+        <article class="practica-card">
+            <span class="numero">Clase 01</span>
+
+            <h3>Introducción a Razor Pages</h3>
+
+            <p>
+                Primeros ejercicios con Razor Pages, formularios,
+                handlers y procesamiento de datos.
+            </p>
+
+            <a asp-page="/Guia01/Index" class="btn-practica">
+                Ver práctica →
+            </a>
+        </article>
+
     </div>
-</div>
+</section>

@@ -1,0 +1,72 @@
+﻿.hero {
+    text-align: center;
+    padding: 1rem 1rem;
+}
+
+.hero h1 {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-top: 1rem;
+}
+
+.hero p {
+        max-width: 650px;
+        margin: 1rem auto 0;
+        font-size: 1.1rem;
+        color: #6c757d;
+}
+
+.badge-course {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    background-color: #eeeeee;
+    font-size: 0.9rem;
+}
+
+.practicas {
+    padding: 2rem 0 5rem;
+}
+
+.practicas h2 {
+    margin-bottom: 2rem;
+}
+
+.practicas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.practica-card {
+    border: 1px solid #dddddd;
+    border-radius: 16px;
+    padding: 2rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.practica-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.numero {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #6c757d;
+}
+
+.practica-card h3 {
+    margin-top: 1rem;
+}
+
+.practica-card p {
+    color: #6c757d;
+    margin: 1rem 0 1.5rem;
+}
+
+.btn-practica {
+    display: inline-block;
+    text-decoration: none;
+    font-weight: 600;
+}
