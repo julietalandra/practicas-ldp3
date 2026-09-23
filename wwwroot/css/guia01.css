@@ -1,0 +1,165 @@
+﻿.guia-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 3rem 1rem 5rem;
+}
+
+.guia-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.guia-numero {
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #6c757d;
+}
+
+.guia-header h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin: 0.5rem 0;
+}
+
+.guia-header p {
+    color: #6c757d;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.fecha {
+    display: inline-block;
+    background: #f1f1f1;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+
+/* TARJETAS */
+
+.ejercicios-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.ejercicio-card {
+    border: 1px solid #e5e5e5;
+    border-radius: 16px;
+    padding: 2rem;
+    background: white;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+    .ejercicio-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    }
+
+.ejercicio-numero {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #6c757d;
+}
+
+.ejercicio-card h2 {
+    margin: 0.5rem 0;
+    font-size: 1.5rem;
+}
+
+.descripcion {
+    color: #6c757d;
+    margin-bottom: 1.5rem;
+}
+
+
+/* FORMULARIOS */
+
+.form-label {
+    font-weight: 500;
+}
+
+.opciones {
+    display: flex;
+    gap: 1.5rem;
+    margin: 1rem 0 1.5rem;
+}
+
+    .opciones label {
+        cursor: pointer;
+    }
+
+.inputs-dobles {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+
+/* BOTONES */
+
+.btn-guia {
+    border: none;
+    background: #212529;
+    color: white;
+    padding: 0.7rem 1.2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+    .btn-guia:hover {
+        background: #000;
+        transform: translateY(-1px);
+    }
+
+
+/* RESULTADOS */
+
+.resultado {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    border-radius: 8px;
+    background: #f1f3f5;
+}
+
+
+/* CONTADOR */
+
+.contador {
+    font-size: 3rem;
+    font-weight: 700;
+    margin: 1rem 0;
+}
+
+
+/* ÚLTIMO EJERCICIO */
+
+.ejercicio-grande {
+    grid-column: 1 / -1;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+
+    .ejercicios-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .ejercicio-grande {
+        grid-column: auto;
+    }
+
+    .inputs-dobles {
+        grid-template-columns: 1fr;
+    }
+
+    .guia-header h1 {
+        font-size: 2.2rem;
+    }
+}

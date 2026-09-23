@@ -1,4 +1,49 @@
 ﻿@page
 @model PracticasLDP3.Pages.Guia02.IndexModel
 @{
+    ViewData["Title"] = "Guía 02";
 }
+
+<link rel="stylesheet" href="~/css/guia02.css" />
+
+<div class="guia-container">
+
+    <div class="guia-header">
+        <span class="guia-numero">GUÍA 02</span>
+        <h1>Archivos de texto</h1>
+        <p>Ejercicios de escritura y lectura de archivos con Razor Pages.</p>
+    </div>
+
+    <div class="ejercicios-grid">
+
+        <div class="ejercicio-card">
+            <span class="ejercicio-numero">Ejemplo 1 y 2</span>
+            <h2>Libro de visitas</h2>
+            <p>Guardar comentarios en un archivo de texto y consultar los datos registrados.</p>
+
+            <div class="acciones">
+                <a asp-page="/Guia02/visitas-cargar" class="btn-guia">
+                    Ingresar comentario
+                </a>
+
+                <a asp-page="/Guia02/visitas-mostrar" class="btn-secundario">
+                    Ver visitas
+                </a>
+            </div>
+        </div>
+
+        <div class="ejercicio-card">
+            <span class="ejercicio-numero">Ejemplo 3</span>
+            <h2>Contador de páginas</h2>
+            <p>Cantidad de veces que se cargó esta página.</p>
+
+            <div class="contador">
+                @Model.Valor
+            </div>
+
+            <span class="contador-texto">páginas vistas</span>
+        </div>
+
+    </div>
+
+</div>

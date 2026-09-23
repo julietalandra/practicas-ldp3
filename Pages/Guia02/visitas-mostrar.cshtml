@@ -1,0 +1,26 @@
+﻿@page
+@model PracticasLDP3.Pages.Guia02.MostrarModel
+@{
+    ViewData["Title"] = "Libro de visitas";
+}
+
+<link rel="stylesheet" href="~/css/guia02.css" />
+
+<div class="visitas-container">
+
+    <div class="mb-4">
+        <span class="guia-numero">LIBRO DE VISITAS</span>
+        <h1>Comentarios registrados</h1>
+    </div>
+
+    <div class="visitas-contenido">
+        @Html.Raw(Model.Contenido)
+    </div>
+
+    <div class="mt-4">
+        <a asp-page="/Guia02/Index" class="volver">
+            ← Volver a la Guía 02
+        </a>
+    </div>
+
+</div>

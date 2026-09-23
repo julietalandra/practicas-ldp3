@@ -1,0 +1,143 @@
+﻿.guia-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 3rem 1rem;
+}
+
+.guia-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+    .guia-header h1 {
+        font-size: 2.8rem;
+        font-weight: 700;
+        margin: 0.5rem 0;
+    }
+
+    .guia-header p {
+        color: #6c757d;
+        font-size: 1.1rem;
+    }
+
+.guia-numero {
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #6c757d;
+}
+
+.ejercicios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.ejercicio-card {
+    border: 1px solid #e5e5e5;
+    border-radius: 16px;
+    padding: 2rem;
+    background: white;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+    .ejercicio-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    }
+
+.ejercicio-numero {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #6c757d;
+}
+
+.ejercicio-card h2 {
+    margin: 0.7rem 0;
+}
+
+.ejercicio-card p {
+    color: #6c757d;
+}
+
+.acciones {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+}
+
+.btn-guia,
+.btn-secundario {
+    display: inline-block;
+    padding: 0.7rem 1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.btn-guia {
+    background: #212529;
+    color: white;
+}
+
+    .btn-guia:hover {
+        background: #000;
+        color: white;
+    }
+
+.btn-secundario {
+    border: 1px solid #212529;
+    color: #212529;
+}
+
+    .btn-secundario:hover {
+        background: #f1f1f1;
+        color: #212529;
+    }
+
+.contador {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-top: 1.5rem;
+}
+
+.contador-texto {
+    color: #6c757d;
+}
+
+.form-container {
+    max-width: 650px;
+    margin: 3rem auto;
+    padding: 2rem;
+    border: 1px solid #e5e5e5;
+    border-radius: 16px;
+    background: white;
+}
+
+    .form-container h1 {
+        margin-top: 0.5rem;
+    }
+
+.volver {
+    color: #6c757d;
+    text-decoration: none;
+}
+
+    .volver:hover {
+        color: #212529;
+        text-decoration: underline;
+    }
+
+.visitas-container {
+    max-width: 750px;
+    margin: 3rem auto;
+}
+
+.visitas-contenido {
+    padding: 2rem;
+    border: 1px solid #e5e5e5;
+    border-radius: 16px;
+    background: white;
+    line-height: 1.7;
+}

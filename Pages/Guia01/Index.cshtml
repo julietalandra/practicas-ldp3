@@ -1,172 +1,214 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Guía 01";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Hola Mundo</h1> 
-    <p>Mi primer sitio web con Razor Pages y Visual Studio 2022.</p>
-    <p>Hoy es: @Model.FechaHoy</p>
-</div>
-<hr class="my-2" />
-<div class="text-center">
+<link rel="stylesheet" href="~/css/guia01.css" />
 
-    <h1>Contador</h1> 
-    <p>El valor actual es: <strong>@Model.Contador</strong></p>
+<div class="guia-container">
 
-    <form method="post" asp-page-handler="Contador">
-        <input type="hidden" name="Contador" value="@Model.Contador" />
-        <button type="submit" class="btn btn-primary">Sumar</button>
-    </form>
+    <header class="guia-header">
+        <span class="guia-numero">GUÍA 01</span>
+        <h1>Introducción a Razor Pages</h1>
+        <p>Primeros ejercicios con formularios, handlers y procesamiento de datos.</p>
+        <span class="fecha">Hoy es @Model.FechaHoy</span>
+    </header>
 
-</div>
 
-<hr class="my-5" />
+    <section class="ejercicios-grid">
 
-<div class="text-center">
+        <!-- CONTADOR -->
+        <article class="ejercicio-card">
+            <span class="ejercicio-numero">Ejercicio 01</span>
+            <h2>Contador</h2>
+            <p class="descripcion">Incrementa el valor cada vez que se presiona el botón.</p>
 
-    <h1>Suma de dos valores</h1>
+            <div class="contador">
+                @Model.Contador
+            </div>
 
-    <form method="post" asp-page-handler="Suma">
-        <div class="mb-3">
-            <label>Ingrese primer valor</label>
-            <input type="number" name="X1" class="form-control text-center" />
-        </div>
+            <form method="post" asp-page-handler="Contador">
+                <input type="hidden" name="Contador" value="@Model.Contador" />
 
-        <div class="mb-3">
-            <label>Ingrese segundo valor</label>
-            <input type="number" name="X2" class="form-control text-center" />
-        </div>
+                <button type="submit" class="btn-guia">
+                    Sumar
+                </button>
+            </form>
+        </article>
 
-        <div class="mb-3">
-            <button type="submit" class="btn btn-primary">Sumar</button>
-        </div>
-    </form>
 
-    @if (!string.IsNullOrEmpty(Model.Mensaje1))
-    {
-        <div class="alert alert-info">
-            @Model.Mensaje1
-        </div>
-    }
-</div>
+        <!-- SUMA -->
+        <article class="ejercicio-card">
+            <span class="ejercicio-numero">Ejercicio 02</span>
+            <h2>Suma de dos valores</h2>
+            <p class="descripcion">Ingresa dos números para obtener su suma.</p>
 
-<hr class="my-5" />
+            <form method="post" asp-page-handler="Suma">
 
-<div class="text-center">
+                <div class="mb-3">
+                    <label class="form-label">Primer valor</label>
+                    <input type="number" name="X1" class="form-control" />
+                </div>
 
-    <h1>Sumar o restar</h1> 
-    
-    <form method="post" asp-page-handler="SumaoResta" class="mt-3">
-        
-        <div class="mb-3">        
-            <label>Ingrese primer valor</label>        
-            <input type="number" name="X1" class="form-control text-center" />
-        </div>
-        
-        <div class="mb-3">
-            <label>Ingrese segundo valor</label>        
-            <input type="number" name="X2" class="form-control text-center" />
-        </div>
+                <div class="mb-3">
+                    <label class="form-label">Segundo valor</label>
+                    <input type="number" name="X2" class="form-control" />
+                </div>
 
-        <div class="mb-3">
-            <input type="radio" name="Operacion" value="Sumar" checked /> Sumar
-            <input type="radio" name="Operacion" value="Restar" /> Restar
-        </div>
+                <button type="submit" class="btn-guia">
+                    Sumar
+                </button>
 
-        <div class="mb-3">        
-            <button type="submit" class="btn btn-primary">Calcular</button>    
-        </div> 
+            </form>
 
-    </form> 
-    
-    @if (!string.IsNullOrEmpty(Model.Mensaje2))
-    {
-        <div class="alert alert-info">
-            @Model.Mensaje2
-        </div>
-    }
+            @if (!string.IsNullOrEmpty(Model.Mensaje1))
+            {
+                <div class="resultado">
+                    @Model.Mensaje1
+                </div>
+            }
+        </article>
 
-</div>
 
-<hr class="my-5" />
+        <!-- RADIO BUTTON -->
+        <article class="ejercicio-card">
+            <span class="ejercicio-numero">Ejercicio 03</span>
+            <h2>Sumar o restar</h2>
+            <p class="descripcion">Selecciona una de las dos operaciones.</p>
 
-<div class="text-center">
+            <form method="post" asp-page-handler="SumaoResta">
 
-    <h1>Sumar y/o restar</h1>
+                <div class="mb-3">
+                    <label class="form-label">Primer valor</label>
+                    <input type="number" name="X1" class="form-control" />
+                </div>
 
-    <form method="post" asp-page-handler="SumaYOResta" class="mt-3">
+                <div class="mb-3">
+                    <label class="form-label">Segundo valor</label>
+                    <input type="number" name="X2" class="form-control" />
+                </div>
 
-        <div class="mb-3">
-            <label>Ingrese primer valor</label>
-            <input type="number" name="X1" class="form-control text-center" />
-        </div>
+                <div class="opciones">
+                    <label>
+                        <input type="radio" name="Operacion" value="Sumar" checked />
+                        Sumar
+                    </label>
 
-        <div class="mb-3">
-            <label>Ingrese segundo valor</label>
-            <input type="number" name="X2" class="form-control text-center" />
-        </div>
+                    <label>
+                        <input type="radio" name="Operacion" value="Restar" />
+                        Restar
+                    </label>
+                </div>
 
-        <div class="mb-3">
-            <input type="checkbox" name="Operaciones" value="Sumar" /> Sumar
-            <input type="checkbox" name="Operaciones" value="Restar" /> Restar
-        </div>
+                <button type="submit" class="btn-guia">
+                    Calcular
+                </button>
 
-        <div class="mb-3">
-            <button type="submit" class="btn btn-primary">Calcular</button>
-        </div>
+            </form>
 
-    </form>
+            @if (!string.IsNullOrEmpty(Model.Mensaje2))
+            {
+                <div class="resultado">
+                    @Model.Mensaje2
+                </div>
+            }
+        </article>
 
-    @if (!string.IsNullOrEmpty(Model.Mensaje3))
-    {
-        <div class="alert alert-info">
-            @Html.Raw(Model.Mensaje3)
-        </div>
-    }
 
-</div>
+        <!-- CHECKBOX -->
+        <article class="ejercicio-card">
+            <span class="ejercicio-numero">Ejercicio 04</span>
+            <h2>Sumar y/o restar</h2>
+            <p class="descripcion">Permite seleccionar una o ambas operaciones.</p>
 
-<hr class="my-5" />
+            <form method="post" asp-page-handler="SumaYOResta">
 
-<div class="text-center">
+                <div class="mb-3">
+                    <label class="form-label">Primer valor</label>
+                    <input type="number" name="X1" class="form-control" />
+                </div>
 
-    <h1>Cálculo con ListBox</h1>
+                <div class="mb-3">
+                    <label class="form-label">Segundo valor</label>
+                    <input type="number" name="X2" class="form-control" />
+                </div>
 
-    <form method="post" asp-page-handler="ListBox" class="mt-3">
+                <div class="opciones">
+                    <label>
+                        <input type="checkbox" name="Operaciones" value="Sumar" />
+                        Sumar
+                    </label>
 
-        <div class="mb-3">
-            <label>Ingrese primer valor</label>
-            <input type="number" name="X1" class="form-control text-center" />
-        </div>
+                    <label>
+                        <input type="checkbox" name="Operaciones" value="Restar" />
+                        Restar
+                    </label>
+                </div>
 
-        <div class="mb-3">
-            <label>Ingrese segundo valor</label>
-            <input type="number" name="X2" class="form-control text-center" />
-        </div>
+                <button type="submit" class="btn-guia">
+                    Calcular
+                </button>
 
-        <div class="mb-3">
-            <label>Elegí una o varias operaciones</label>        
-            <select name="Operaciones" multiple size="4" class="form-select text-center">
-                <option value="Sumar">Sumar</option>            
-                <option value="Restar">Restar</option>           
-                <option value="Multiplicar">Multiplicar</option>            
-                <option value="Dividir">Dividir</option>        
-            </select>
-        </div>
+            </form>
 
-        <div class="mb-3">
-            <button type="submit" class="btn btn-primary">Calcular</button>
-        </div>
+            @if (!string.IsNullOrEmpty(Model.Mensaje3))
+            {
+                <div class="resultado">
+                    @Html.Raw(Model.Mensaje3)
+                </div>
+            }
+        </article>
 
-    </form>
 
-    @if (!string.IsNullOrEmpty(Model.Mensaje4))
-    {
-        <div class="alert alert-info">
-            @Html.Raw(Model.Mensaje4)
-        </div>
-    }
+        <!-- LISTBOX -->
+        <article class="ejercicio-card ejercicio-grande">
+            <span class="ejercicio-numero">Ejercicio 05</span>
+            <h2>Cálculo con ListBox</h2>
+            <p class="descripcion">Selecciona una o varias operaciones matemáticas.</p>
+
+            <form method="post" asp-page-handler="ListBox">
+
+                <div class="inputs-dobles">
+                    <div>
+                        <label class="form-label">Primer valor</label>
+                        <input type="number" name="X1" class="form-control" />
+                    </div>
+
+                    <div>
+                        <label class="form-label">Segundo valor</label>
+                        <input type="number" name="X2" class="form-control" />
+                    </div>
+                </div>
+
+                <div class="mb-3 mt-3">
+                    <label class="form-label">Operaciones</label>
+
+                    <select name="Operaciones"
+                            multiple
+                            size="4"
+                            class="form-select">
+                        <option value="Sumar">Sumar</option>
+                        <option value="Restar">Restar</option>
+                        <option value="Multiplicar">Multiplicar</option>
+                        <option value="Dividir">Dividir</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn-guia">
+                    Calcular
+                </button>
+
+            </form>
+
+            @if (!string.IsNullOrEmpty(Model.Mensaje4))
+            {
+                <div class="resultado">
+                    @Html.Raw(Model.Mensaje4)
+                </div>
+            }
+        </article>
+
+    </section>
 
 </div>
