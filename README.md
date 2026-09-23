@@ -1,5 +1,5 @@
 <div align="center">
-  <h1>⚡ Prácticas LDP3</h1>
+  <h1>Prácticas LDP3</h1>
   <p><i>Laboratorio de Programación 3 — Tecnicatura Superior en Desarrollo de Software</i></p>
 </div>
 
@@ -7,7 +7,7 @@ Este repositorio es mi espacio personal de aprendizaje y práctica para la mater
 
 El flujo del proyecto está pensado para mantener todo sincronizado mediante Git, permitiéndome avanzar indistintamente desde Windows o macOS.
 
-## 🛠️ Tecnologías
+## Tecnologías
 
 ![C#](https://img.shields.io/badge/C%23-%23239120.svg?style=for-the-badge&logo=csharp&logoColor=white)
 ![.NET 8](https://img.shields.io/badge/.NET_8-512BD4?style=for-the-badge&logo=dotnet&logoColor=white)
@@ -15,7 +15,7 @@ El flujo del proyecto está pensado para mantener todo sincronizado mediante Git
 ![Razor Pages](https://img.shields.io/badge/Razor_Pages-0078D7?style=for-the-badge&logo=microsoft&logoColor=white)
 ![SQL Server LocalDB](https://img.shields.io/badge/SQL_Server_LocalDB-CC2927?style=for-the-badge&logo=microsoft-sql-server&logoColor=white)
 
-## 📂 Contenido Práctico
+## Contenido Práctico
 
 El código refleja el avance progresivo de la materia, integrando las distintas guías didácticas en el entorno de desarrollo:
 
@@ -24,7 +24,7 @@ El código refleja el avance progresivo de la materia, integrando las distintas 
 - **Acceso a Datos Nativo:** Conexión a bases de datos relacionales implementando operaciones ABM clásicas con ADO.NET (`SqlConnection`, `SqlCommand`, `SqlDataReader`).
 - **Entity Framework Core:** Evolución hacia el uso de ORM, implementando clases modelo, DbContext, migraciones y consultas mediante LINQ.
 
-## 📚 Información de la materia
+## Información de la materia
 
 - **Profesor**: Christian Mansilla
 - **6to Semetre 2026**
