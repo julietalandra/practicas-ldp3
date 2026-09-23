@@ -10,4 +10,8 @@
     <Folder Include="Pages\Guia01\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="7.1.0" />
+  </ItemGroup>
+
 </Project>

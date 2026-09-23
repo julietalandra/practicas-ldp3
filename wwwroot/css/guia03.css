@@ -1,0 +1,182 @@
+﻿.guia-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 3rem 1rem 5rem;
+}
+
+.guia-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.guia-numero {
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #6c757d;
+}
+
+.guia-header h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin: 0.5rem 0;
+}
+
+.guia-header p {
+    color: #6c757d;
+    font-size: 1.1rem;
+}
+
+
+/* EJERCICIOS */
+
+.ejercicios-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.ejercicio-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border: 1px solid #e5e5e5;
+    border-radius: 16px;
+    padding: 2rem;
+    background: white;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+    .ejercicio-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    }
+
+.ejercicio-numero {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #6c757d;
+}
+
+.ejercicio-card h2 {
+    margin: 0.6rem 0;
+    font-size: 1.5rem;
+}
+
+.ejercicio-card p {
+    color: #6c757d;
+    margin-bottom: 1.5rem;
+}
+
+
+/* BOTÓN */
+
+.btn-guia {
+    display: inline-block;
+    margin-top: auto;
+    padding: 0.7rem 1rem;
+    border-radius: 8px;
+    background: #212529;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+    .btn-guia:hover {
+        background: #000;
+        color: white;
+        transform: translateY(-1px);
+    }
+
+
+/* EJERCICIOS TODAVÍA NO REALIZADOS */
+
+.pendiente {
+    background: #fafafa;
+}
+
+.estado {
+    margin-top: auto;
+    padding: 0.4rem 0.7rem;
+    background: #eeeeee;
+    border-radius: 20px;
+    color: #777;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+    .ejercicios-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .guia-header h1 {
+        font-size: 2.2rem;
+    }
+}
+
+.form-container {
+    max-width: 600px;
+    margin: 3rem auto;
+    padding: 2rem;
+    border: 1px solid #e5e5e5;
+    border-radius: 16px;
+    background: white;
+}
+
+.form-header {
+    margin-bottom: 2rem;
+}
+
+    .form-header h1 {
+        margin: 0.5rem 0;
+        font-size: 2rem;
+    }
+
+    .form-header p {
+        color: #6c757d;
+        margin: 0;
+    }
+
+.form-label {
+    font-weight: 500;
+}
+
+.form-control {
+    padding: 0.75rem;
+}
+
+.btn-guardar {
+    width: 100%;
+    border: none;
+    border-radius: 8px;
+    padding: 0.8rem 1rem;
+    background: #212529;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+    .btn-guardar:hover {
+        background: #000;
+    }
+
+.volver-container {
+    margin-top: 1.5rem;
+    text-align: center;
+}
+
+.volver {
+    color: #6c757d;
+    text-decoration: none;
+}
+
+    .volver:hover {
+        color: #212529;
+        text-decoration: underline;
+    }

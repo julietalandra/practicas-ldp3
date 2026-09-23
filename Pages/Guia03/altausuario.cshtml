@@ -1,0 +1,60 @@
+﻿@page
+@model PracticasLDP3.Pages.Guia03.altausuarioModel
+@{
+    ViewData["Title"] = "Alta de usuario";
+}
+
+<link rel="stylesheet" href="~/css/guia03.css" />
+
+<div class="form-container">
+
+    <div class="form-header">
+        <span class="guia-numero">ALTA DE USUARIO</span>
+
+        <h1>Nuevo usuario</h1>
+
+        <p>
+            Completá los datos para registrar un usuario
+            en la base de datos.
+        </p>
+    </div>
+
+    <form method="post">
+
+        <div class="mb-3">
+            <label class="form-label">Nombre</label>
+            <input type="text"
+                   name="Nombre"
+                   class="form-control"
+                   placeholder="Ingresá el nombre" />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Clave</label>
+            <input type="password"
+                   name="Clave"
+                   class="form-control"
+                   placeholder="Ingresá una clave" />
+        </div>
+
+        <div class="mb-4">
+            <label class="form-label">Mail</label>
+            <input type="email"
+                   name="Mail"
+                   class="form-control"
+                   placeholder="nombre@ejemplo.com" />
+        </div>
+
+        <button type="submit" class="btn-guardar">
+            Guardar usuario
+        </button>
+
+    </form>
+
+    <div class="volver-container">
+        <a asp-page="/Guia03/Index" class="volver">
+            ← Volver a la Guía 03
+        </a>
+    </div>
+
+</div>

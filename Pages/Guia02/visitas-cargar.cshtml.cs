@@ -18,8 +18,7 @@ namespace PracticasLDP3.Pages.Guia02
         public void OnGet() { 
         
          }
-        public IActionResult
-        OnPost ()
+        public IActionResult OnPost ()
         {
             // true = si el archivo no existe se crea; si existe,
             // true = si el archivo no existe se crea; si existe,

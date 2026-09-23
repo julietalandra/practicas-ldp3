@@ -1,0 +1,80 @@
+﻿@page
+@model PracticasLDP3.Pages.Guia03.IndexModel
+@{
+    ViewData["Title"] = "Guía 03";
+}
+
+<link rel="stylesheet" href="~/css/guia03.css" />
+
+<div class="guia-container">
+
+    <header class="guia-header">
+        <span class="guia-numero">GUÍA 03</span>
+
+        <h1>Acceso a bases de datos</h1>
+
+        <p>
+            Conexión a SQL Server y operaciones ABM utilizando
+            ASP.NET Core.
+        </p>
+    </header>
+
+    <div class="ejercicios-grid">
+
+        <article class="ejercicio-card">
+            <span class="ejercicio-numero">Ejercicio 01</span>
+
+            <h2>Alta de usuarios</h2>
+
+            <p>
+                Registro de nuevos usuarios en la base de datos
+                mediante SqlConnection y SqlCommand.
+            </p>
+
+            <a asp-page="/Guia03/altausuario" class="btn-guia">
+                Ingresar al alta →
+            </a>
+        </article>
+
+        <article class="ejercicio-card pendiente">
+            <span class="ejercicio-numero">Ejercicio 02</span>
+
+            <h2>Consulta de usuarios</h2>
+
+            <p>
+                Búsqueda y lectura de usuarios almacenados
+                en la base de datos.
+            </p>
+
+            <span class="estado">Próximamente</span>
+        </article>
+
+        <article class="ejercicio-card pendiente">
+            <span class="ejercicio-numero">Ejercicio 03</span>
+
+            <h2>Baja de usuarios</h2>
+
+            <p>
+                Eliminación de registros almacenados
+                en la base de datos.
+            </p>
+
+            <span class="estado">Próximamente</span>
+        </article>
+
+        <article class="ejercicio-card pendiente">
+            <span class="ejercicio-numero">Ejercicio 04</span>
+
+            <h2>Modificación de usuarios</h2>
+
+            <p>
+                Actualización de los datos de un usuario
+                existente.
+            </p>
+
+            <span class="estado">Próximamente</span>
+        </article>
+
+    </div>
+
+</div>
