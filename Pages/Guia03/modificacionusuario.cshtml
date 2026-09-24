@@ -1,0 +1,82 @@
+﻿@page
+@model PracticasLDP3.Pages.Guia03.modificacionusuarioModel
+@{
+    ViewData["Title"] = "Modificación de usuarios";
+}
+
+<link rel="stylesheet" href="~/css/guia03.css" />
+
+<div class="panel-formulario">
+
+    <div class="form-header">
+        <span class="guia-numero">MODIFICACIÓN DE USUARIOS</span>
+
+        <h1>Modificar usuarios</h1>
+
+        <p>
+            Escribe el nombre del usuario que deseas modificar.
+        </p>
+    </div>
+
+    <form method="post">
+
+        <div class="mb-3">
+            <label class="form-label">Nombre del usuario</label>
+
+            <input type="text"
+                   asp-for="Nombre"
+                   class="form-control"
+                   placeholder="Ingresá el nombre" />
+        </div>
+
+        <button type="submit"
+                asp-page-handler="Buscar"
+                class="btn-guardar">
+            Buscar usuario
+        </button>
+
+        @if (!string.IsNullOrEmpty(Model.Mensaje))
+        {
+            <div class="mensaje">
+                @Model.Mensaje
+            </div>
+        }
+
+        @if (Model.UsuarioEncontrado)
+        {
+            <div class="datos-modificacion">
+
+                <div class="mb-3">
+                    <label class="form-label">Clave</label>
+
+                    <input type="text"
+                           asp-for="Clave"
+                           class="form-control" />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Mail</label>
+
+                    <input type="email"
+                           asp-for="Mail"
+                           class="form-control" />
+                </div>
+
+                <button type="submit"
+                        asp-page-handler="Modificar"
+                        class="btn-guardar">
+                    Guardar cambios
+                </button>
+
+            </div>
+        }
+
+    </form>
+
+    <div class="volver-container">
+        <a asp-page="/Guia03/Index" class="volver">
+            ← Volver a la Guía 03
+        </a>
+    </div>
+
+</div>

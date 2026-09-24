@@ -1,0 +1,57 @@
+﻿@page
+@model PracticasLDP3.Pages.Guia03.bajausuarioModel
+@{
+    ViewData["Title"] = "Baja de usuarios";
+}
+
+<link rel="stylesheet" href="~/css/guia03.css" />
+
+<div class="panel-formulario">
+
+    <div class="form-header">
+        <span class="guia-numero">BAJA DE USUARIOS</span>
+
+        <h1>Borrar usuarios</h1>
+
+        <p>
+            Escribe el nombre del usuario que deseas borrar.
+        </p>
+    </div>
+
+    <form method="post">
+
+        <div class="mb-3">
+            <label class="form-label">Nombre del usuario</label>
+
+            <input type="text"
+                   name="Nombre"
+                   value="@Model.Nombre"
+                   class="form-control"
+                   placeholder="Ingresá el nombre" />
+        </div>
+
+        <div class="acciones-form unica">
+
+            <button type="submit" class="btn-guardar">
+                Borrar usuario
+            </button>
+
+        </div>
+
+    </form>
+
+
+    @if (!string.IsNullOrEmpty(Model.Mensaje))
+    {
+            <div class="mensaje">
+                @Model.Mensaje
+            </div>
+    }
+
+    <div class="volver-container">
+        <a asp-page="/Guia03/Index" class="volver">
+            ← Volver a la Guía 03
+        </a>
+    </div>
+
+</div>

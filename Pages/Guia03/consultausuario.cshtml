@@ -1,0 +1,109 @@
+﻿@page
+@model PracticasLDP3.Pages.Guia03.consultausuarioModel
+@{
+    ViewData["Title"] = "Consulta de usuarios";
+}
+
+<link rel="stylesheet" href="~/css/guia03.css" />
+
+<div class="panel-formulario ancho">
+
+    <div class="form-header">
+        <span class="guia-numero">CONSULTA DE USUARIOS</span>
+
+        <h1>Buscar usuarios</h1>
+
+        <p>
+            Buscá un usuario por su nombre o consultá todos
+            los usuarios registrados.
+        </p>
+    </div>
+
+    <form method="post">
+
+        <div class="mb-3">
+            <label class="form-label">Nombre del usuario</label>
+
+            <input type="text"
+                   name="Nombre"
+                   value="@Model.Nombre"
+                   class="form-control"
+                   placeholder="Ingresá el nombre" />
+        </div>
+
+        <div class="acciones-form">
+
+            <button type="submit"
+                    asp-page-handler="Buscar"
+                    class="btn-guardar">
+                Buscar usuario
+            </button>
+
+            <button type="submit"
+                    asp-page-handler="MostrarTodos"
+                    class="btn-secundario">
+                Mostrar todos
+            </button>
+
+        </div>
+
+    </form>
+
+
+    @if (!string.IsNullOrEmpty(Model.Mensaje))
+    {
+        <div class="mensaje">
+            @Model.Mensaje
+        </div>
+    }
+
+
+    @if (Model.Usuarios.Count > 0)
+    {
+        <div class="resultados">
+
+            <div class="resultados-header">
+                <h2>Resultados</h2>
+
+                <span>
+                    @Model.Usuarios.Count
+                    @(Model.Usuarios.Count == 1 ? "usuario" : "usuarios")
+                </span>
+            </div>
+
+            <div class="tabla-container">
+                <table class="tabla-usuarios">
+
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Clave</th>
+                            <th>Mail</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @foreach (var usuario in Model.Usuarios)
+                        {
+                            <tr>
+                                <td>@usuario.Nombre</td>
+                                <td>@usuario.Clave</td>
+                                <td>@usuario.Mail</td>
+                            </tr>
+                        }
+                    </tbody>
+
+                </table>
+            </div>
+
+        </div>
+    }
+
+
+    <div class="volver-container">
+        <a asp-page="/Guia03/Index" class="volver">
+            ← Volver a la Guía 03
+        </a>
+    </div>
+
+</div>
