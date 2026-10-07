@@ -1,7 +1,13 @@
+using Microsoft.EntityFrameworkCore;
+using PracticasLDP3.Datos;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+
+builder.Services.AddDbContext<AbmContext>(options =>
+    options.UseSqlServer(
+        builder.Configuration.GetConnectionString("administracion_ef")));
 
 var app = builder.Build();
 
