@@ -1,0 +1,16 @@
+@page
+@model PracticasLDP3.Pages.Guia05.modificacionarticulosModel
+@{ ViewData["Title"] = "Modificación de artículos"; }
+<link rel="stylesheet" href="~/css/practicas456.css" asp-append-version="true" />
+<section class="pr-panel">
+<header class="pr-header"><span class="pr-kicker">GUÍA 05</span><h1>Modificación de artículos</h1><p>Buscá por código y cambiá los datos o el rubro.</p></header>
+<form method="post"><div asp-validation-summary="All" class="pr-error"></div><div class="pr-campo"><label asp-for="Codigo">Código</label>
+<input asp-for="Codigo" type="number" min="1" /><span asp-validation-for="Codigo" class="pr-error"></span></div><div class="pr-campo"><label asp-for="Descripcion">Descripción</label>
+<input asp-for="Descripcion" type="text" maxlength="50" /><span asp-validation-for="Descripcion" class="pr-error"></span></div><div class="pr-campo"><label asp-for="Precio">Precio</label>
+<input asp-for="Precio" type="text" inputmode="decimal" placeholder="Ejemplo: 1250,50" /><span asp-validation-for="Precio" class="pr-error"></span></div><div class="pr-campo"><label asp-for="Codigorubro">Rubro</label>
+<select asp-for="Codigorubro" asp-items="Model.Rubros"><option value="">Seleccioná un rubro</option></select>
+<span asp-validation-for="Codigorubro" class="pr-error"></span></div><div class="pr-acciones"><button asp-page-handler="Buscar" class="pr-btn secundario" type="submit">Buscar</button><button asp-page-handler="Guardar" class="pr-btn" type="submit">Guardar cambios</button></div></form>@if (!string.IsNullOrWhiteSpace(Model.Mensaje))
+{
+    <p class="pr-mensaje" role="status">@Model.Mensaje</p>
+}<p class="pr-volver"><a asp-page="/Guia05/Index">← Volver a la guía 05</a></p>
+</section>

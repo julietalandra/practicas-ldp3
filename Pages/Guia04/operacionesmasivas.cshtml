@@ -1,0 +1,19 @@
+@page
+@model PracticasLDP3.Pages.Guia04.operacionesmasivasModel
+@{ ViewData["Title"] = "Desafío: operaciones directas"; }
+<link rel="stylesheet" href="~/css/practicas456.css" asp-append-version="true" />
+<section class="pr-panel">
+<header class="pr-header"><span class="pr-kicker">GUÍA 04</span><h1>Desafío: operaciones directas</h1><p>ExecuteDelete y ExecuteUpdate sobre datos de práctica.</p></header>
+<h2>Borrar un usuario por nombre</h2>
+<form method="post" asp-page-handler="Borrar" onsubmit="return confirm('¿Borrar el usuario indicado?');"><div class="pr-campo"><label asp-for="Nombre">Nombre</label>
+<input asp-for="Nombre" type="text"  /><span asp-validation-for="Nombre" class="pr-error"></span></div><button class="pr-btn peligro" type="submit">Borrar</button></form>
+<hr /><h2>Cambiar la provincia de varios alumnos</h2>
+<form method="post" asp-page-handler="Actualizar" onsubmit="return confirm('¿Actualizar todos los alumnos de la provincia indicada?');"><div class="pr-campo"><label asp-for="ProvinciaOrigen">Provincia actual</label>
+<input asp-for="ProvinciaOrigen" type="text"  /><span asp-validation-for="ProvinciaOrigen" class="pr-error"></span></div><div class="pr-campo"><label asp-for="ProvinciaDestino">Nueva provincia</label>
+<input asp-for="ProvinciaDestino" type="text" maxlength="30" /><span asp-validation-for="ProvinciaDestino" class="pr-error"></span></div><button class="pr-btn" type="submit">Actualizar</button></form>@if (!string.IsNullOrWhiteSpace(Model.Mensaje))
+{
+    <p class="pr-mensaje" role="status">@Model.Mensaje</p>
+}
+<p class="pr-nota">Estos métodos ejecutan directamente una sentencia SQL y evitan cargar cada registro. No sincronizan objetos que el contexto ya estuviera rastreando.</p>
+<p class="pr-volver"><a asp-page="/Guia04/Index">← Volver a la guía 04</a></p>
+</section>

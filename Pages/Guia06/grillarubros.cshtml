@@ -1,0 +1,48 @@
+@page
+@model PracticasLDP3.Pages.Guia06.grillarubrosModel
+@{ ViewData["Title"] = "Grilla de rubros"; }
+<link rel="stylesheet" href="~/css/practicas456.css" asp-append-version="true" />
+<section class="pr-panel">
+<header class="pr-header"><span class="pr-kicker">GUÍA 06</span><h1>Grilla de rubros</h1><p>Tres filas por página. Hacé clic en los títulos para ordenar.</p></header>
+@if (!string.IsNullOrWhiteSpace(Model.Mensaje))
+{
+    <p class="pr-mensaje" role="status">@Model.Mensaje</p>
+}
+@if (Model.Filas.Count == 0) { <p class="pr-vacio">No hay rubros cargados</p> }
+else
+{
+<div class="pr-tabla-scroll"><table class="pr-tabla"><caption>Rubros cargados: @Model.TotalRubros</caption>
+<thead><tr>
+<th><a asp-page="./grillarubros" asp-route-orden="@Model.OrdenSiguiente("codigo")">Código ↕</a></th>
+<th><a asp-page="./grillarubros" asp-route-orden="@Model.OrdenSiguiente("descripcion")">Descripción ↕</a></th><th>Acciones</th>
+</tr></thead><tbody>
+@foreach (var rubro in Model.Filas)
+{
+    <tr><td>@rubro.Codigo</td><td>
+        <form method="post" asp-page-handler="Modificar" id="editar-@rubro.Codigo" class="pr-fila-form">
+            <input type="hidden" name="codigo" value="@rubro.Codigo" />
+            <input type="hidden" name="pagina" value="@Model.Pagina" />
+            <input type="hidden" name="orden" value="@Model.Orden" />
+            <label class="visually-hidden" for="descripcion-@rubro.Codigo">Descripción del rubro @rubro.Codigo</label>
+            <input id="descripcion-@rubro.Codigo" name="descripcion" value="@rubro.Descripcion" maxlength="50" required />
+        </form>
+    </td><td><div class="pr-acciones-fila">
+        <button type="submit" form="editar-@rubro.Codigo" class="pr-btn pequeno">Modificar</button>
+        <form method="post" asp-page-handler="Eliminar" onsubmit="return confirm('¿Borrar este rubro?');">
+            <input type="hidden" name="codigo" value="@rubro.Codigo" />
+            <input type="hidden" name="pagina" value="@Model.Pagina" />
+            <input type="hidden" name="orden" value="@Model.Orden" />
+            <button type="submit" class="pr-btn pequeno peligro">Borrar</button>
+        </form>
+    </div></td></tr>
+}
+</tbody></table></div>
+}
+<nav class="pr-paginacion" aria-label="Páginas de rubros">
+@if (Model.Pagina > 1) { <a class="pr-btn secundario" asp-page="./grillarubros" asp-route-pagina="@(Model.Pagina - 1)" asp-route-orden="@Model.Orden">Anterior</a> }
+<span>Página @Model.Pagina de @Model.TotalPaginas</span>
+@if (Model.Pagina < Model.TotalPaginas) { <a class="pr-btn secundario" asp-page="./grillarubros" asp-route-pagina="@(Model.Pagina + 1)" asp-route-orden="@Model.Orden">Siguiente</a> }
+</nav>
+<p><a asp-page="/Guia05/altarubro">Agregar un rubro</a></p>
+<p class="pr-volver"><a asp-page="/Guia06/Index">← Volver a la guía 06</a></p>
+</section>

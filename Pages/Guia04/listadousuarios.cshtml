@@ -1,0 +1,18 @@
+@page
+@model PracticasLDP3.Pages.Guia04.listadousuariosModel
+@{ ViewData["Title"] = "Listado de usuarios"; }
+<link rel="stylesheet" href="~/css/practicas456.css" asp-append-version="true" />
+<section class="pr-panel">
+<header class="pr-header"><span class="pr-kicker">GUÍA 04</span><h1>Listado de usuarios</h1><p>LINQ, OrderBy y ToList.</p></header>
+
+@if (Model.Lista.Count == 0) { <p class="pr-vacio">No hay usuarios cargados</p> }
+else
+{
+<div class="pr-tabla-scroll"><table class="pr-tabla"><caption>Usuarios de prueba</caption>
+<thead><tr><th>Nombre</th><th>Clave</th><th>Mail</th></tr></thead><tbody>
+@foreach (var u in Model.Lista) { <tr><td>@u.Nombre</td><td>@u.Clave</td><td>@u.Mail</td></tr> }
+</tbody></table></div>
+}
+<p>Total: @Model.Lista.Count</p>
+<p class="pr-volver"><a asp-page="/Guia04/Index">← Volver a la guía 04</a></p>
+</section>

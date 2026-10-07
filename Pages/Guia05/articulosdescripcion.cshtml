@@ -1,0 +1,25 @@
+@page
+@model PracticasLDP3.Pages.Guia05.articulosdescripcionModel
+@{ ViewData["Title"] = "Consulta por descripción"; }
+<link rel="stylesheet" href="~/css/practicas456.css" asp-append-version="true" />
+<section class="pr-panel">
+<header class="pr-header"><span class="pr-kicker">GUÍA 05</span><h1>Consulta por descripción</h1><p>JOIN entre artículos y rubros, con parámetros.</p></header>
+<form method="post"><div class="pr-campo"><label asp-for="Descripcion">Parte de la descripción</label>
+<input asp-for="Descripcion" type="text"  /><span asp-validation-for="Descripcion" class="pr-error"></span></div><button class="pr-btn" type="submit">Consultar</button></form>@if (!string.IsNullOrWhiteSpace(Model.Mensaje))
+{
+    <p class="pr-mensaje" role="status">@Model.Mensaje</p>
+}@if (Model.Consultado)
+{
+    if (Model.Lista.Count == 0) { <p class="pr-vacio">No hay artículos para mostrar</p> }
+    else
+    {
+        <div class="pr-tabla-scroll"><table class="pr-tabla"><caption>Artículos encontrados: @Model.Lista.Count</caption>
+        <thead><tr><th>Código</th><th>Descripción</th><th>Precio</th><th>Rubro</th></tr></thead><tbody>
+        @foreach (var a in Model.Lista)
+        {
+            <tr><td>@a.Codigo</td><td>@a.Descripcion</td><td>@(a.Precio?.ToString("C", System.Globalization.CultureInfo.GetCultureInfo("es-AR")) ?? "Sin precio")</td><td>@a.Rubro</td></tr>
+        }
+        </tbody></table></div>
+    }
+}<p class="pr-volver"><a asp-page="/Guia05/Index">← Volver a la guía 05</a></p>
+</section>

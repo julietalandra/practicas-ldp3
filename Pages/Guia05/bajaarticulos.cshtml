@@ -1,0 +1,12 @@
+@page
+@model PracticasLDP3.Pages.Guia05.bajaarticulosModel
+@{ ViewData["Title"] = "Baja de artículos"; }
+<link rel="stylesheet" href="~/css/practicas456.css" asp-append-version="true" />
+<section class="pr-panel">
+<header class="pr-header"><span class="pr-kicker">GUÍA 05</span><h1>Baja de artículos</h1><p>Se elimina solamente el artículo seleccionado.</p></header>
+<form method="post" onsubmit="return confirm('¿Borrar el artículo indicado?');"><div class="pr-campo"><label asp-for="Codigo">Código</label>
+<input asp-for="Codigo" type="number" min="1" /><span asp-validation-for="Codigo" class="pr-error"></span></div><button type="submit" class="pr-btn peligro">Borrar</button></form>@if (!string.IsNullOrWhiteSpace(Model.Mensaje))
+{
+    <p class="pr-mensaje" role="status">@Model.Mensaje</p>
+}<p class="pr-volver"><a asp-page="/Guia05/Index">← Volver a la guía 05</a></p>
+</section>

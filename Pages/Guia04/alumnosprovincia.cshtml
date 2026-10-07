@@ -1,0 +1,24 @@
+@page
+@model PracticasLDP3.Pages.Guia04.alumnosprovinciaModel
+@{ ViewData["Title"] = "Alumnos por provincia"; }
+<link rel="stylesheet" href="~/css/practicas456.css" asp-append-version="true" />
+<section class="pr-panel">
+<header class="pr-header"><span class="pr-kicker">GUÍA 04</span><h1>Alumnos por provincia</h1><p>Filtro parcial con Where y Contains.</p></header>
+<form method="post"><div class="pr-campo"><label asp-for="Provincia">Provincia</label>
+<input asp-for="Provincia" type="text"  /><span asp-validation-for="Provincia" class="pr-error"></span></div><button type="submit" class="pr-btn">Consultar</button></form>@if (!string.IsNullOrWhiteSpace(Model.Mensaje))
+{
+    <p class="pr-mensaje" role="status">@Model.Mensaje</p>
+}
+@if (Model.Consultado)
+{
+    if (Model.Lista.Count == 0) { <p class="pr-vacio">No hay alumnos para esa provincia</p> }
+    else
+    {
+        <div class="pr-tabla-scroll"><table class="pr-tabla"><caption>Resultados: @Model.Lista.Count</caption>
+        <thead><tr><th>DNI</th><th>Apellido y nombre</th><th>Provincia</th></tr></thead><tbody>
+        @foreach (var a in Model.Lista) { <tr><td>@a.Dni</td><td>@a.ApellidoNombre</td><td>@a.Provincia</td></tr> }
+        </tbody></table></div>
+    }
+}
+<p class="pr-volver"><a asp-page="/Guia04/Index">← Volver a la guía 04</a></p>
+</section>

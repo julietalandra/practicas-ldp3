@@ -1,0 +1,12 @@
+@page
+@model PracticasLDP3.Pages.Guia05.bajarubroModel
+@{ ViewData["Title"] = "Baja de rubros"; }
+<link rel="stylesheet" href="~/css/practicas456.css" asp-append-version="true" />
+<section class="pr-panel">
+<header class="pr-header"><span class="pr-kicker">GUÍA 05</span><h1>Baja de rubros</h1><p>ABM con ADO.NET y consultas parametrizadas.</p></header>
+<form method="post" onsubmit="return confirm('¿Borrar este rubro?');"><div class="pr-campo"><label asp-for="Codigo">Código</label>
+<input asp-for="Codigo" type="number" min="1" /><span asp-validation-for="Codigo" class="pr-error"></span></div><div class="pr-acciones"><button class="pr-btn peligro" type="submit">Borrar</button></div></form>@if (!string.IsNullOrWhiteSpace(Model.Mensaje))
+{
+    <p class="pr-mensaje" role="status">@Model.Mensaje</p>
+}<p class="pr-volver"><a asp-page="/Guia05/Index">← Volver a la guía 05</a></p>
+</section>

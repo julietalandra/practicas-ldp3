@@ -34,3 +34,16 @@ El código refleja el avance progresivo de la materia, integrando las distintas 
 <div align="center">
   <i>Repositorio personal creado por Julieta con fines académicos y de práctica. 👩🏻‍💻</i>
 </div>
+
+
+## Guías 04, 05 y 06
+
+La continuación incluye ABM de usuarios y alumnos con EF Core, ABM de artículos y rubros con ADO.NET y grillas con paginación, ordenamiento y acciones por fila.
+
+- Guía 04: `administracion_ef`, contexto `AbmContext`.
+- Guías 05 y 06: `administracion`, compartida por ADO.NET y `CatalogoContext`.
+- Estilos responsive compartidos en `wwwroot/css/practicas456.css`.
+- Instalación, migraciones, script SQL y comprobaciones: [INSTRUCCIONES_GUIAS_456.md](INSTRUCCIONES_GUIAS_456.md).
+
+LocalDB requiere Windows. El proyecto usa .NET 8 y EF Core 8.0.31. Las prácticas conservan páginas separadas por guía y no reemplazan las guías 01 a 03.
+

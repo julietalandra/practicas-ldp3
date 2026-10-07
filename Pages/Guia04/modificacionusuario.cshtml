@@ -1,0 +1,19 @@
+@page
+@model PracticasLDP3.Pages.Guia04.modificacionusuarioModel
+@{ ViewData["Title"] = "Modificación de usuarios"; }
+<link rel="stylesheet" href="~/css/practicas456.css" asp-append-version="true" />
+<section class="pr-panel">
+<header class="pr-header"><span class="pr-kicker">GUÍA 04</span><h1>Modificación de usuarios</h1><p>Operación con Entity Framework Core.</p></header>
+<form method="post"><div asp-validation-summary="All" class="pr-error"></div><div class="pr-campo"><label asp-for="Nombre">Nombre</label>
+<input asp-for="Nombre" type="text"  /><span asp-validation-for="Nombre" class="pr-error"></span></div>
+<div class="pr-campo"><label asp-for="Clave">Clave (de prueba)</label>
+<input asp-for="Clave" type="text"  /><span asp-validation-for="Clave" class="pr-error"></span></div>
+<div class="pr-campo"><label asp-for="Mail">Mail</label>
+<input asp-for="Mail" type="text"  /><span asp-validation-for="Mail" class="pr-error"></span></div><div class="pr-acciones"><button asp-page-handler="Buscar" class="pr-btn secundario" type="submit">Buscar</button><button asp-page-handler="Guardar" class="pr-btn" type="submit">Guardar cambios</button></div></form>
+@if (!string.IsNullOrWhiteSpace(Model.Mensaje))
+{
+    <p class="pr-mensaje" role="status">@Model.Mensaje</p>
+}
+
+<p class="pr-volver"><a asp-page="/Guia04/Index">← Volver a la guía 04</a></p>
+</section>

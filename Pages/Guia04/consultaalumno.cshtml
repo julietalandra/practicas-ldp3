@@ -1,0 +1,18 @@
+@page
+@model PracticasLDP3.Pages.Guia04.consultaalumnoModel
+@{ ViewData["Title"] = "Consulta de alumnos"; }
+<link rel="stylesheet" href="~/css/practicas456.css" asp-append-version="true" />
+<section class="pr-panel">
+<header class="pr-header"><span class="pr-kicker">GUÍA 04</span><h1>Consulta de alumnos</h1><p>Operación con Entity Framework Core.</p></header>
+<form method="post"><div asp-validation-summary="All" class="pr-error"></div><div class="pr-campo"><label asp-for="Dni">DNI</label>
+<input asp-for="Dni" type="text" maxlength="8" /><span asp-validation-for="Dni" class="pr-error"></span></div><div class="pr-acciones"><button class="pr-btn " type="submit">Consultar</button></div></form>
+@if (!string.IsNullOrWhiteSpace(Model.Mensaje))
+{
+    <p class="pr-mensaje" role="status">@Model.Mensaje</p>
+}
+@if (Model.Resultado != null)
+{
+<dl class="pr-datos"><dt>DNI</dt><dd>@Model.Resultado.Dni</dd><dt>Apellido y nombre</dt><dd>@Model.Resultado.ApellidoNombre</dd><dt>Provincia</dt><dd>@Model.Resultado.Provincia</dd></dl>
+}
+<p class="pr-volver"><a asp-page="/Guia04/Index">← Volver a la guía 04</a></p>
+</section>

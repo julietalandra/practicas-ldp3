@@ -1,0 +1,38 @@
+@page
+@model PracticasLDP3.Pages.Guia06.grillaarticulosModel
+@{ ViewData["Title"] = "Grilla de artículos"; }
+<link rel="stylesheet" href="~/css/practicas456.css" asp-append-version="true" />
+<section class="pr-panel">
+<header class="pr-header"><span class="pr-kicker">GUÍA 06</span><h1>Grilla de artículos</h1><p>JOIN con rubros, formato monetario y selección de filas.</p></header>
+
+@{ var cultura = System.Globalization.CultureInfo.GetCultureInfo("es-AR"); }
+@if (Model.Seleccionado.HasValue) { <p class="pr-mensaje" role="status"><strong>Artículo seleccionado:</strong> @Model.DatoSeleccionado</p> }
+@if (Model.Filas.Count == 0) { <p class="pr-vacio">No hay artículos cargados</p> }
+else
+{
+<div class="pr-tabla-scroll"><table class="pr-tabla"><caption>Artículos y su rubro</caption>
+<thead><tr>
+<th><a asp-page="./grillaarticulos" asp-route-orden="@Model.OrdenSiguiente("codigo")" asp-route-seleccionado="@Model.Seleccionado">Código ↕</a></th>
+<th><a asp-page="./grillaarticulos" asp-route-orden="@Model.OrdenSiguiente("descripcion")" asp-route-seleccionado="@Model.Seleccionado">Descripción del artículo ↕</a></th>
+<th><a asp-page="./grillaarticulos" asp-route-orden="@Model.OrdenSiguiente("precio")" asp-route-seleccionado="@Model.Seleccionado">Precio ↕</a></th>
+<th><a asp-page="./grillaarticulos" asp-route-orden="@Model.OrdenSiguiente("rubro")" asp-route-seleccionado="@Model.Seleccionado">Rubro ↕</a></th><th>Selección</th>
+</tr></thead><tbody>
+@foreach (var a in Model.Filas)
+{
+    <tr class="@(a.Precio >= 5 ? "pr-fila-alta" : "") @(a.Codigo == Model.Seleccionado ? "pr-fila-seleccionada" : "")">
+    <td>@a.Codigo</td><td>@a.Descripcion</td><td>@(a.Precio?.ToString("C", cultura) ?? "Sin precio")</td><td>@a.Rubro</td>
+    <td><a asp-page="./grillaarticulos" asp-page-handler="Seleccionar" asp-route-codigo="@a.Codigo" asp-route-orden="@Model.Orden">Seleccionar</a></td></tr>
+}
+</tbody></table></div>
+<p>Total de artículos: @Model.Filas.Count</p>
+}
+<p class="pr-nota">Amarillo: precio mayor o igual a $5. Azul: fila seleccionada. El código del rubro se consulta, pero no se dibuja como columna.</p>
+<p><a asp-page="/Guia05/altaarticulos">Agregar un artículo</a> · <a asp-page="./grillaarticulos" asp-route-orden="@Model.Orden">Limpiar selección</a></p>
+<details class="pr-formatos"><summary>Otros formatos de la guía</summary>
+<ul><li>Moneda (C): @((12.5).ToString("C", cultura))</li>
+<li>Cuatro decimales (F4): @((12.5).ToString("F4", cultura))</li>
+<li>Notación científica (E): @((12.5).ToString("E", cultura))</li>
+<li>Porcentaje (P): @((0.25).ToString("P", cultura))</li>
+<li>Fecha corta (d): @DateTime.Today.ToString("d", cultura)</li></ul></details>
+<p class="pr-volver"><a asp-page="/Guia06/Index">← Volver a la guía 06</a></p>
+</section>
